@@ -1,0 +1,29 @@
+#ifndef PROTOTYPE_AST_H
+#define PROTOTYPE_AST_H
+
+#include "ExprAST.h"
+#include <vector>
+#include <string>
+
+namespace llvm {
+    class Function;
+    class Type;
+}
+
+using namespace std;
+
+// Represents the "prototype" for a function,
+// which captures its name, and its argument names
+class PrototypeAST {
+  const string Name;
+  vector<string> Args;
+
+public:
+  PrototypeAST(const string &name, vector<string> Args) 
+  : Name(name), Args(move(Args)) {}
+
+  llvm::Function *codegen();
+  const string &getName() const { return Name; }
+};
+
+#endif // PROTOTYPE_AST_H

@@ -13,5 +13,6 @@ int getNextToken();
 
 extern string IdentifierStr;
 extern double NumVal;
+extern string StringVal; 
 
 #endif // LEXER_H

@@ -1,0 +1,10 @@
+.
+def myFunc
+x = 42 + 3.14
+y = "Hello, World!"
+.Apnader_ektu_somoy_nosto_kori.
+.Dorja_bondho_koren.
+.Toh_apnara_kew_bashay_poren_ni.
+.Ashen_poraLekha_kori.
+.fr_fr_noCap.
++

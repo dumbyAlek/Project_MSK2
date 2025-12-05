@@ -6,6 +6,7 @@ using namespace std;
 int CurrentToken;
 string IdentifierStr;
 double NumVal;
+string StringVal;
 
 // Gets one character at a time using getchar() and store in LastChar
 int gettok() {
@@ -16,6 +17,42 @@ int gettok() {
     LastChar = getchar();
   }
 
+  // Custom .SOMETHING. format implementation
+  if (LastChar == '.') {
+    string DirStr = ".";
+    LastChar = getchar();
+
+    // Keep reading letters, digits, or dots
+    while (LastChar != EOF && LastChar != '.') {
+        DirStr += LastChar;
+        LastChar = getchar();
+    }
+    if(LastChar == '.'){
+        DirStr += LastChar;
+        LastChar = getchar();  
+    }
+
+    // Map known directives to tokens
+    // Start Comment with ".apnader_ektu_somoy_nosto_kori.", the whole line is commented out
+    if (DirStr == ".Apnader_ektu_somoy_nosto_kori.") {
+
+        // skip until end of line
+        while (LastChar != '\n' && LastChar != '\r' && LastChar != EOF) {
+            LastChar = getchar();
+        }
+        return gettok(); 
+    }
+
+    if (DirStr == ".Dorja_bondho_koren.")  return tok_beginInc;
+    if (DirStr == ".Toh_apnara_kew_bashay_poren_ni.")   return tok_endInc;
+    if (DirStr == ".Ashen_poraLekha_kori.")  return tok_beginBody;
+    if (DirStr == ".fr_fr_noCap.")   return tok_endBody;
+
+    // Unknown directive: treat as identifier
+    IdentifierStr = DirStr;
+    return tok_identifier;
+  }
+
   // Recognize Identifier and Specific Keywords
   // isalpha(char) returns True if the char is an alphabet, else return False
   if (isalpha(LastChar)) {
@@ -24,7 +61,7 @@ int gettok() {
     // Stacking together all alphanumeric characters into IdentifierStr
     // isalnum(char) returns True if the char is an alphanumeric, else return False
     while (isalnum(LastChar = getchar())) {
-      IdentifierStr += LastChar;
+      IdentifierStr += LastChar; // Append
     }
 
     if (IdentifierStr == "def") {
@@ -39,34 +76,35 @@ int gettok() {
   }
 
   // Stacking together only numeric values
+  // isdigit(char) returns True if the char is a digit, else return False
   if (isdigit(LastChar) || LastChar == '.') {
-    std::string NumStr;
+    string NumStr;
 
     do {
-      NumStr += LastChar;
+      NumStr += LastChar; // Append
       LastChar = getchar();
     } while (isdigit(LastChar) || LastChar == '.');
 
-    // Convert numeric string to numeric value
-    // that we are store in NumVal
+    // Numeric String --> Numeric Value saved in NumVal
+    // strtod --> string to double 
     NumVal = strtod(NumStr.c_str(), 0);
     return tok_number;
   }
 
-  // Handling comments by skipping to the end of the line
-  // and return the next token
-  if (LastChar == '#') {
-    do {
-      LastChar = getchar();
-    } while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
-
-    if (LastChar != EOF) {
-      return gettok();
+  if (LastChar == '"') {
+    string StrVal;
+    while (true) {
+        LastChar = getchar();
+        if (LastChar == '"' || LastChar == EOF) break; // end of string
+        StrVal += LastChar;
     }
+    LastChar = getchar(); // consume closing quote
+    // store string somewhere global
+    StringVal = StrVal;
+    return tok_string;
   }
 
-  // Finally, if the input doesn't match one of the above cases
-  // it's either an operator character like '+' or the end of the file
+  // It NONE of the Cases work, its either end of file or operator
   if (LastChar == EOF) {
     return tok_eof;
   }
@@ -77,7 +115,7 @@ int gettok() {
 }
 
 int getNextToken() {
-  return CurTok = gettok();
+  return CurrentToken = gettok();
 }
 
 // Note to self: the getchar() is getting the characters from the input stram as we run it
