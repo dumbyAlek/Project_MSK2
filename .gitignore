@@ -1,1 +1,9 @@
 vendor/
+build/
+.Identifier
+.DS_Store
+.vscode/  # Visual Studio Code settings
+.idea/    # JetBrains IDEs (PHPStorm, IntelliJ)
+*.swp     # Vim temporary files
+*~        # Temporary files
+.user.ini

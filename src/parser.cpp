@@ -137,17 +137,30 @@ std::unique_ptr<PrototypeAST> ParsePrototype() {
   if (CurrentToken != '(') {
     return LogErrorP("Expected '(' in prototype");
   }
+  
+  getNextToken(); // eat '('
 
-  std::vector<std::string> ArgNames;
-  while (getNextToken() == tok_identifier) {
-    ArgNames.push_back(IdentifierStr);
-  }
+    std::vector<std::string> ArgNames;
 
-  if (CurrentToken != ')') {
-    return LogErrorP("Expected ')' in prototype");
-  }
+    if (CurrentToken != ')') { // check if there are arguments
+        while (true) {
+            if (CurrentToken != tok_identifier)
+                return LogErrorP("Expected argument name");
 
-  getNextToken();
+            ArgNames.push_back(IdentifierStr);
+            getNextToken(); // eat identifier
+
+            if (CurrentToken == ')') // end of argument list
+                break;
+
+            if (CurrentToken != ',') // expecting comma between args
+                return LogErrorP("Expected ',' between arguments");
+
+            getNextToken(); // eat comma
+        }
+    }
+
+  getNextToken(); // eat ')'
 
   return std::make_unique<PrototypeAST>(FnName, std::move(ArgNames));
 }

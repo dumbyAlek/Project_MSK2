@@ -11,6 +11,7 @@
 #include "VariableExprAST.h"
 #include "lexer.h"
 #include "token.h"
+#include "logger.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ unique_ptr<ExprAST> ParseNumberExpr();
 unique_ptr<ExprAST> ParseParenExpr();
 unique_ptr<ExprAST> ParseIdentifierExpr();
 unique_ptr<ExprAST> ParsePrimary();
-unique_ptr<ExprAST> ParseBinOpRHS(int ExprPrec, nique_ptr<ExprAST> LHS);
+unique_ptr<ExprAST> ParseBinOpRHS(int ExprPrec, unique_ptr<ExprAST> LHS);
 unique_ptr<ExprAST> ParseExpression();
 unique_ptr<PrototypeAST> ParsePrototype();
 unique_ptr<FunctionAST> ParseDefinition();

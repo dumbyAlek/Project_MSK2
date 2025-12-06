@@ -1,7 +1,7 @@
-#include "ast/BinaryExprAST.h"
+#include "../include/BinaryExprAST.h"
 #include "llvm/IR/IRBuilder.h"
-// #include "kaleidoscope/kaleidoscope.h"
-// #include "logger/logger.h"
+#include "../include/kaleidoscope.h"
+#include "../include/logger.h"
 
 // Generate LLVM code for binary expressions
 llvm::Value *BinaryExprAST::codegen() {

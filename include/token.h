@@ -1,5 +1,5 @@
-#ifndef __TOKEN_H__
-#define __TOKEN_H__
+#ifndef TOKEN_H
+#define TOKEN_H
 
 // Return tokens [0-255] for unknown characters, else ireturn one of these for known things
 enum Token {
@@ -23,4 +23,4 @@ enum Token {
   tok_endBody = -11,
 };
 
-#endif
+#endif // TOKEN_H

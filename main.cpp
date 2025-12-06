@@ -1,60 +1,80 @@
 // main.cpp
 #include <iostream>
 #include <string>
-#include "include/lexer.h"
-#include "include/token.h"
+#include "include/headers.h"
+
 
 using namespace std;
 
-int main() {
-    cout << "Starting lexer test..." << endl;
+//===----------------------------------------------------------------------===//
+// Top-Level parsing
+//===----------------------------------------------------------------------===//
 
-    while (true) {
-        int Tok = getNextToken(); // use getNextToken to update CurrentToken
+static void HandleDefinition() {
+  if (ParseDefinition()) {
+    fprintf(stderr, "Parsed a function definition.\n");
+  } else {
+    // Skip token for error recovery.
+    getNextToken();
+  }
+}
 
-        if (Tok == tok_eof) {
-            cout << "<EOF>" << endl;
-            break;
-        }
+static void HandleExtern() {
+  if (ParseExtern()) {
+    fprintf(stderr, "Parsed an extern\n");
+  } else {
+    // Skip token for error recovery.
+    getNextToken();
+  }
+}
 
-        switch (Tok) {
-            case tok_def:
-                cout << "<tok_def>" << endl;
-                break;
-            case tok_extern:
-                cout << "<tok_extern>" << endl;
-                break;
-            case tok_identifier:
-                cout << "<identifier: " << IdentifierStr << ">" << endl;
-                break;
-            case tok_number:
-                cout << "<number: " << NumVal << ">" << endl;
-                break;
-            case tok_string:
-                cout << "<string: " << StringVal << ">" << endl;
-                break;
-            case tok_comment:
-                cout << "<comment skipped>" << endl;
-                break;
-            case tok_beginInc:
-                cout << "<startOne>" << endl;
-                break;
-            case tok_endInc:
-                cout << "<stopOne>" << endl;
-                break;
-            case tok_beginBody:
-                cout << "<startTwo>" << endl;
-                break;
-            case tok_endBody:
-                cout << "<stopTwo>" << endl;
-                break;
-            default:
-                // Unknown single-character token (operators, punctuation)
-                cout << "<char: " << char(Tok) << ">" << endl;
-                break;
-        }
+static void HandleTopLevelExpression() {
+  // Evaluate a top-level expression into an anonymous function.
+  if (ParseTopLevelExpr()) {
+    fprintf(stderr, "Parsed a top-level expr\n");
+  } else {
+    // Skip token for error recovery.
+    getNextToken();
+  }
+}
+
+/// top ::= definition | external | expression | ';'
+static void MainLoop() {
+  while (true) {
+    fprintf(stderr, "ready> ");
+    switch (CurrentToken) {
+    case tok_eof:
+      return;
+    case ';': // ignore top-level semicolons.
+      getNextToken();
+      break;
+    case tok_def:
+      HandleDefinition();
+      break;
+    case tok_extern:
+      HandleExtern();
+      break;
+    default:
+      HandleTopLevelExpression();
+      break;
     }
+  }
+}
 
-    cout << "Lexer test finished." << endl;
-    return 0;
+int main() {
+  // Install standard binary operators.
+  // 1 is lowest precedence.
+  BinopPrecedence['<'] = 10;
+  BinopPrecedence['+'] = 20;
+  BinopPrecedence['-'] = 20;
+  BinopPrecedence['*'] = 40; // highest.
+
+  // Prime the first token.
+  fprintf(stderr, "ready> ");
+  getNextToken();
+
+  // Run the main "interpreter loop" now.
+  MainLoop();
+
+  return 0;
 }

@@ -13,7 +13,7 @@ find_package(LLVM REQUIRED CONFIG)
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
 message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
 
-llvm_map_components_to_libnames(LLVM_LIBS core native)
+llvm_map_components_to_libnames(LLVM_LIBS core native asmparser x86codegen)
 
 # Define paths for headers and source files
 set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)

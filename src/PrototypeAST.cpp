@@ -1,6 +1,6 @@
 #include "../include/PrototypeAST.h"
 #include "llvm/IR/IRBuilder.h"
-#include "kaleidoscope/kaleidoscope.h"
+#include "../include/kaleidoscope.h"
 
 // Generates LLVM code for externals calls
 llvm::Function *PrototypeAST::codegen() {

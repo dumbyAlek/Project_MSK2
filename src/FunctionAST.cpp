@@ -1,4 +1,8 @@
 #include "../include/FunctionAST.h"
+#include "llvm/IR/Function.h"
+#include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/Verifier.h"
+#include "../include/kaleidoscope.h"
 
 // Generates LLVM code for functions declarations
 llvm::Function *FunctionAST::codegen() {
