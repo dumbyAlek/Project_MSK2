@@ -15,8 +15,13 @@ llvm::Function *FunctionAST::codegen() {
   if (!TheFunction) {
     return nullptr;
   }
+  
+  if (!TheFunction->empty()){
+    return (Function*)LogErrorV("Function cannot be redefined.");
+  }
 
-  llvm::BasicBlock *BB = llvm::BasicBlock::Create(TheContext, "entry", TheFunction);
+
+  llvm::BasicBlock *BB = llvm::BasicBlock::Create(*TheContext, "entry", TheFunction);
   Builder.SetInsertPoint(BB);
   NamedValues.clear();
   for (auto &Arg : TheFunction->args()) {

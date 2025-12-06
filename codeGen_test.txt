@@ -1,0 +1,13 @@
+extern sin(x);
+
+def add(a, b) a + b;
+def mul(a, b) a * b;
+def square(x) x * x;
+
+add(5, 6);
+mul(2, 7);
+square(4);
+
+1 + 2 * 3;
+4 * (2 + 3);
+sin(0.5);
