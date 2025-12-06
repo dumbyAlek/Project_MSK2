@@ -507,3 +507,93 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/lib/llvm-18/cmake/FindFFI.cmake:59 (check_c_source_compiles)"
+      - "/usr/lib/llvm-18/cmake/LLVMConfig.cmake:279 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test HAVE_FFI_CALL"
+    directories:
+      source: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-FYTUqd"
+      binary: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-FYTUqd"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/llvm-18/cmake"
+    buildResult:
+      variable: "HAVE_FFI_CALL"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-FYTUqd'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_490af
+        [1/2] /usr/bin/cc -DHAVE_FFI_CALL   -o CMakeFiles/cmTC_490af.dir/src.c.o -c /home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-FYTUqd/src.c
+        [2/2] : && /usr/bin/cc   CMakeFiles/cmTC_490af.dir/src.c.o -o cmTC_490af  /usr/lib/x86_64-linux-gnu/libffi.so && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "/usr/lib/llvm-18/cmake/FindLibEdit.cmake:28 (check_include_file)"
+      - "/usr/lib/llvm-18/cmake/LLVMConfig.cmake:286 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for histedit.h"
+    directories:
+      source: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-CDjAyF"
+      binary: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-CDjAyF"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/llvm-18/cmake"
+    buildResult:
+      variable: "HAVE_HISTEDIT_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-CDjAyF'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_f824d
+        [1/2] /usr/bin/cc    -o CMakeFiles/cmTC_f824d.dir/CheckIncludeFile.c.o -c /home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-CDjAyF/CheckIncludeFile.c
+        [2/2] : && /usr/bin/cc   CMakeFiles/cmTC_f824d.dir/CheckIncludeFile.c.o -o cmTC_f824d   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/lib/llvm-18/cmake/FindTerminfo.cmake:32 (check_c_source_compiles)"
+      - "/usr/lib/llvm-18/cmake/LLVMConfig.cmake:291 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test Terminfo_LINKABLE"
+    directories:
+      source: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-uf3Oh9"
+      binary: "/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-uf3Oh9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/llvm-18/cmake"
+    buildResult:
+      variable: "Terminfo_LINKABLE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-uf3Oh9'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_c583a
+        [1/2] /usr/bin/cc -DTerminfo_LINKABLE   -o CMakeFiles/cmTC_c583a.dir/src.c.o -c /home/alek/CSE425/Project_NewLang/build/CMakeFiles/CMakeScratch/TryCompile-uf3Oh9/src.c
+        [2/2] : && /usr/bin/cc   CMakeFiles/cmTC_c583a.dir/src.c.o -o cmTC_c583a  /usr/lib/x86_64-linux-gnu/libtinfo.so && :
+        
+      exitCode: 0
+...
