@@ -1,3 +1,4 @@
+.Ashen_poraLekha_kori.
 extern printd(x);
 
 def add(a, b)
@@ -7,5 +8,5 @@ def square(x)
   x * x;
 
 square(5);
-add(10, 20);
-
+.Apnader_ektu_somoy_nosto_kori.add(10, 20);
+.fr_fr_noCap.

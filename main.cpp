@@ -21,6 +21,8 @@ std::unique_ptr<StandardInstrumentations> TheSI;
 
 static std::unique_ptr<KaleidoscopeJIT> TheJIT;
 static ExitOnError ExitOnErr;
+enum ParseState { OUTSIDE, INCLUDES, IN_BODY };
+std::vector<std::string> Includes;
 
 // llvm::ExitOnError<std::unique_ptr<llvm::orc::KaleidoscopeJIT>> ExitOnErr;
 
@@ -126,26 +128,70 @@ static void HandleTopLevelExpression() {
 
 /// top ::= definition | external | expression | ';'
 static void MainLoop() {
-  while (true) {
-    fprintf(stderr, "ready> ");
-    switch (CurrentToken) {
-    case tok_eof:
-      return;
-    case ';': // ignore top-level semicolons.
-      getNextToken();
-      break;
-    case tok_def:
-      HandleDefinition();
-      break;
-    case tok_extern:
-      HandleExtern();
-      break;
-    default:
-      HandleTopLevelExpression();
-      break;
+    ParseState state = OUTSIDE;
+
+    while (true) {
+        switch(state) {
+            case OUTSIDE:
+                switch(CurrentToken) {
+                    case tok_eof:
+                        return;
+                    case tok_beginInc:
+                        state = INCLUDES;
+                        getNextToken();
+                        break;
+                    case tok_beginBody:
+                        state = IN_BODY;
+                        getNextToken();
+                        break;
+                    default:
+                        // skip anything else outside
+                        getNextToken();
+                        break;
+                }
+                break;
+
+            case INCLUDES:
+                switch(CurrentToken) {
+                    case tok_endInc:
+                        state = OUTSIDE;
+                        getNextToken();
+                        break;
+                    case tok_identifier:
+                        // Optional: store includes if needed
+                        Includes.push_back(IdentifierStr);
+                        getNextToken();
+                        break;
+                    default:
+                        getNextToken(); // skip unknown tokens inside includes
+                        break;
+                }
+                break;
+
+            case IN_BODY:
+                switch(CurrentToken) {
+                    case tok_endBody:
+                        state = OUTSIDE;
+                        getNextToken();
+                        break;
+                    case tok_def:
+                        HandleDefinition();
+                        break;
+                    case tok_extern:
+                        HandleExtern();
+                        break;
+                    case ';':
+                        getNextToken(); // ignore top-level semicolons
+                        break;
+                    default:
+                        HandleTopLevelExpression();
+                        break;
+                }
+                break;
+        }
     }
-  }
 }
+
 
 //===----------------------------------------------------------------------===//
 // Main driver code.
