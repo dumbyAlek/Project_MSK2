@@ -72,6 +72,15 @@ int gettok() {
       return tok_extern;
     }
 
+    if (IdentifierStr == "if"){
+      return tok_if;
+    }
+      
+    if (IdentifierStr == "else"){
+      return tok_else;
+    }
+
+
     return tok_identifier;
   }
 
@@ -107,6 +116,15 @@ int gettok() {
   // It NONE of the Cases work, its either end of file or operator
   if (LastChar == EOF) {
     return tok_eof;
+  }
+
+  // single-character tokens
+  switch (LastChar) {
+      case '(': LastChar = getchar(); return tok_lparen;
+      case ')': LastChar = getchar(); return tok_rparen;
+      case '{': LastChar = getchar(); return tok_lbrace;
+      case '}': LastChar = getchar(); return tok_rbrace;
+      case ';': LastChar = getchar(); return tok_semi;
   }
 
   int ThisChar = LastChar;

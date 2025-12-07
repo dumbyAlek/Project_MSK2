@@ -1,0 +1,8 @@
+.Ashen_poraLekha_kori.
+def testIf(x) {
+    if (x < 10) { 1 } else { 2 }
+}
+
+testIf(5);
+testIf(15);
+.fr_fr_noCap.

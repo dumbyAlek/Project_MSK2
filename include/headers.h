@@ -10,5 +10,7 @@
 #include "CallExprAST.h"
 #include "PrototypeAST.h"
 #include "FunctionAST.h"
+#include "BlockAST.h"
+#include "IfExprAST.h"
 #include "logger.h"
 #include "KaleidoscopeJIT.h"

@@ -19,8 +19,11 @@ public:
   PrototypeAST(const string &name, vector<string> Args) 
   : Name(name), Args(move(Args)) {}
 
-  llvm::Function *codegen();
+  
   const string &getName() const { return Name; }
+  // void setName(const std::string &N) { Name = N; }
+  
+   llvm::Function *codegen();
 };
 
 #endif // PROTOTYPE_AST_H

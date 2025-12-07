@@ -104,27 +104,35 @@ static void HandleExtern() {
 
 
 static void HandleTopLevelExpression() {
-  if (auto FnAST = ParseTopLevelExpr()) {
-    if (FnAST->codegen()) {
-      auto TSM = ThreadSafeModule(std::move(TheModule), std::move(TheContext));
-      auto RT = TheJIT->getMainJITDylib().createResourceTracker();
-      ExitOnErr(TheJIT->addModule(std::move(TSM)));
+    if (auto FnAST = ParseTopLevelExpr()) {
+        // Generate a unique name for this top-level expression
+        static int anonCount = 0;
+        std::string anonName = "__anon_expr" + std::to_string(anonCount++);
 
-      auto ExprSymbol = ExitOnErr(TheJIT->lookup("__anon_expr"));
-      double (*FP)() = reinterpret_cast<double (*)()>(ExprSymbol.getAddress().getValue());
-      fprintf(stderr, "Evaluated to %f\n", FP());
+        if (FnAST->codegen()) {
+            auto TSM = ThreadSafeModule(std::move(TheModule), std::move(TheContext));
+            auto RT = TheJIT->getMainJITDylib().createResourceTracker();
+            ExitOnErr(TheJIT->addModule(std::move(TSM)));
 
-      ExitOnErr(RT->remove());
+            // Lookup by our unique name
+            auto ExprSymbol = ExitOnErr(TheJIT->lookup(anonName));
+            double (*FP)() = reinterpret_cast<double (*)()>(ExprSymbol.getAddress().getValue());
 
-      // Recreate module/context **only for the next expression**, not for functions
-      TheContext = std::make_unique<LLVMContext>();
-      TheModule  = std::make_unique<Module>("msk2", *TheContext);
-      Builder    = std::make_unique<IRBuilder<>>(*TheContext);
+            fprintf(stderr, "Evaluated to %f\n", FP());
+
+            ExitOnErr(RT->remove());
+
+            // Recreate module/context for the next expression
+            TheContext = std::make_unique<LLVMContext>();
+            TheModule  = std::make_unique<Module>("msk2", *TheContext);
+            Builder    = std::make_unique<IRBuilder<>>(*TheContext);
+        }
+    } else {
+        getNextToken();
     }
-  } else {
-    getNextToken();
-  }
 }
+
+
 
 /// top ::= definition | external | expression | ';'
 static void MainLoop() {
@@ -207,7 +215,9 @@ int main() {
   BinopPrecedence['<'] = 10;
   BinopPrecedence['+'] = 20;
   BinopPrecedence['-'] = 20;
-  BinopPrecedence['*'] = 40; // highest.
+  BinopPrecedence['*'] = 40; 
+  BinopPrecedence['/'] = 40;  
+  BinopPrecedence['%'] = 40; 
 
   // Prime the first token.
   fprintf(stderr, "ready> ");

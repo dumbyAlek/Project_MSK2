@@ -76,17 +76,26 @@ std::unique_ptr<ExprAST> ParseIdentifierExpr() {
 }
 
 std::unique_ptr<ExprAST> ParsePrimary() {
-  switch (CurrentToken) {
-    default:
-    return LogError("Unknown token when expecting an expression");
-    case tok_identifier:
-    return ParseIdentifierExpr();
-    case tok_number:
-    return ParseNumberExpr();
-    case '(':
-    return ParseParenExpr();
-  }
+    switch (CurrentToken) {
+        case tok_identifier:
+            return ParseIdentifierExpr();
+        case tok_number:
+            return ParseNumberExpr();
+        case '(':
+            return ParseParenExpr();
+        case tok_lbrace:
+            return ParseBlock();
+        default:
+            // Check if it is an operator (for binary ops)
+            if (isprint(CurrentToken)) {
+                int Op = CurrentToken;
+                getNextToken();
+                return std::make_unique<VariableExprAST>(std::string(1, (char)Op));
+            }
+            return LogError("Unknown token when expecting an expression");
+    }
 }
+
 
 std::unique_ptr<ExprAST> ParseBinOpRHS(int ExprPrec, std::unique_ptr<ExprAST> LHS) {
   while (true) {
@@ -193,3 +202,77 @@ std::unique_ptr<PrototypeAST> ParseExtern() {
   getNextToken();
   return ParsePrototype();
 }
+
+std::unique_ptr<BlockAST> ParseBlock() {
+    if (CurrentToken != tok_lbrace)
+        return LogErrorB("expected '{'");
+
+    getNextToken(); // eat '{'
+    std::vector<std::unique_ptr<ExprAST>> Statements;
+
+    while (CurrentToken != tok_rbrace && CurrentToken != tok_eof) {
+        auto Stmt = ParseStatement();
+        if (!Stmt) return nullptr;
+        Statements.push_back(std::move(Stmt));
+    }
+
+    if (CurrentToken != tok_rbrace)
+        return LogErrorB("expected '}'");
+    getNextToken(); // eat '}'
+
+    return std::make_unique<BlockAST>(std::move(Statements));
+}
+
+std::unique_ptr<ExprAST> ParseStatement() {
+    switch (CurrentToken) {
+        case tok_if:
+            return ParseIfStmt();
+        default:
+            auto Expr = ParseExpression();
+            if (!Expr) return nullptr;
+            if (CurrentToken == tok_semi) getNextToken(); // optional ';'
+            return Expr;
+    }
+}
+
+std::unique_ptr<ExprAST> ParseIfStmt() {
+    getNextToken(); // eat 'if'
+
+    if (CurrentToken != tok_lparen)
+        return LogError("expected '(' after 'if'");
+    getNextToken(); // eat '('
+
+    auto Cond = ParseExpression();
+    if (!Cond)
+        return nullptr;
+
+    if (CurrentToken != tok_rparen)
+        return LogError("expected ')'");
+    getNextToken(); // eat ')'
+
+    // enforce C-style block
+    if (CurrentToken != tok_lbrace)
+        return LogError("expected '{' after if(...)");
+    auto Then = ParseBlock();
+    if (!Then)
+        return nullptr;
+
+    std::unique_ptr<BlockAST> Else = nullptr;
+
+    if (CurrentToken == tok_else) {
+        getNextToken(); // eat 'else'
+
+        if (CurrentToken != tok_lbrace)
+            return LogError("expected '{' after else");
+        Else = ParseBlock();
+        if (!Else)
+            return nullptr;
+    }
+
+    return std::make_unique<IfExprAST>(
+        std::move(Cond),
+        std::move(Then),
+        std::move(Else)
+    );
+}
+

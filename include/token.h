@@ -21,6 +21,27 @@ enum Token {
   tok_endInc = -9,
   tok_beginBody = -10,
   tok_endBody = -11,
+
+  // control
+  tok_if = -12,
+  tok_else = -13,
+  tok_for = -14,
+  tok_in = -15,
+
+  // operators
+  tok_binary = -16,
+  tok_unary = -17,
+  
+  // var definition
+  tok_var = -18,
+
+  // punctuation
+  tok_lparen = '(',  // (
+  tok_rparen = ')',  // )
+  tok_lbrace = '{',  // {
+  tok_rbrace = '}',  // }
+  tok_semi   = ';',  // ;
+
 };
 
 #endif // TOKEN_H

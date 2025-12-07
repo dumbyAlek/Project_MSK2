@@ -9,6 +9,8 @@
 #include "NumberExprAST.h"
 #include "PrototypeAST.h"
 #include "VariableExprAST.h"
+#include "BlockAST.h"
+#include "IfExprAST.h"
 #include "lexer.h"
 #include "token.h"
 #include "logger.h"
@@ -27,5 +29,8 @@ unique_ptr<PrototypeAST> ParsePrototype();
 unique_ptr<FunctionAST> ParseDefinition();
 unique_ptr<FunctionAST> ParseTopLevelExpr();
 unique_ptr<PrototypeAST> ParseExtern();
+unique_ptr<BlockAST> ParseBlock();
+unique_ptr<ExprAST> ParseStatement();
+unique_ptr<ExprAST> ParseIfStmt();
 
 #endif // PARSER_H

@@ -3,10 +3,13 @@
 
 #include "ExprAST.h"
 #include "PrototypeAST.h"
+#include "BlockAST.h"
 #include <memory>
 
 std::unique_ptr<ExprAST> LogError(const char *Str);
 std::unique_ptr<PrototypeAST> LogErrorP(const char *Str);
+std::unique_ptr<BlockAST> LogErrorB(const char *Str);
+
 llvm::Value *LogErrorV(const char *Str);
 
 #endif

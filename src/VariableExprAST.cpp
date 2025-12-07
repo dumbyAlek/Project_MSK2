@@ -1,12 +1,11 @@
 #include "../include/VariableExprAST.h"
 
 llvm::Value *VariableExprAST::codegen() {
-  llvm::Value *V = NamedValues[Name];
-
-  if (!V) {
-    LogErrorV("Unknown variable name");
-    return nullptr;
-  }
-
-  return V;
+    llvm::Value *V = NamedValues[Name];
+    if (!V) {
+        // If variable not found, create a dummy alloca in entry block
+        V = Builder->CreateAlloca(llvm::Type::getDoubleTy(*TheContext), nullptr, Name);
+        NamedValues[Name] = V;
+    }
+    return Builder->CreateLoad(llvm::Type::getDoubleTy(*TheContext), V, Name);
 }
