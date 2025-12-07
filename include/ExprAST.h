@@ -1,9 +1,7 @@
 #ifndef EXPR_AST_H
 #define EXPR_AST_H
 
-namespace llvm {
-    class Value;
-}
+#include "llvm_all.h"
 
 class ExprAST {
 public:

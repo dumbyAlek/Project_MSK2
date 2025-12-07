@@ -2,22 +2,73 @@
 #include <iostream>
 #include <string>
 #include "include/headers.h"
-
+#include "include/KaleidoscopeJIT.h"
+#include "include/llvm_all.h"
+#include "include/codeGen.h"
+#include "include/runtime.h"
 
 using namespace std;
+using namespace llvm;
+using namespace llvm::orc;
+
+std::unique_ptr<FunctionPassManager> TheFPM;
+std::unique_ptr<LoopAnalysisManager> TheLAM;
+std::unique_ptr<FunctionAnalysisManager> TheFAM;
+std::unique_ptr<CGSCCAnalysisManager> TheCGAM;
+std::unique_ptr<ModuleAnalysisManager> TheMAM;
+std::unique_ptr<PassInstrumentationCallbacks> ThePIC;
+std::unique_ptr<StandardInstrumentations> TheSI;
+
+static std::unique_ptr<KaleidoscopeJIT> TheJIT;
+static ExitOnError ExitOnErr;
+
+// llvm::ExitOnError<std::unique_ptr<llvm::orc::KaleidoscopeJIT>> ExitOnErr;
 
 //===----------------------------------------------------------------------===//
 // Top-Level parsing and JIT Driver
 //===----------------------------------------------------------------------===//
 
-static void InitializeModule() {
-  // Open a new context and module.
-  TheContext = std::make_unique<LLVMContext>();
-  TheModule = std::make_unique<Module>("my cool jit", *TheContext);
+static void InitializeModuleAndManagers() {
+  // Create a shared context (used by ORC ThreadSafeModule)
+  TheContext = std::make_unique<llvm::LLVMContext>();
 
-  // Create a new builder for the module.
-  Builder = std::make_unique<IRBuilder<>>(*TheContext);
+  // Create a new module in that context
+  TheModule = std::make_unique<llvm::Module>("msk2", *TheContext);
+
+  // If TheJIT exists, use its data layout
+  if (TheJIT)
+    TheModule->setDataLayout(TheJIT->getDataLayout());
+
+  // Create a new builder for the module
+  Builder = std::make_unique<llvm::IRBuilder<>>(*TheContext);
+
+  // Create new pass and analysis managers.
+  TheFPM = std::make_unique<FunctionPassManager>();
+  TheLAM = std::make_unique<LoopAnalysisManager>();
+  TheFAM = std::make_unique<FunctionAnalysisManager>();
+  TheCGAM = std::make_unique<CGSCCAnalysisManager>();
+  TheMAM = std::make_unique<ModuleAnalysisManager>();
+  ThePIC = std::make_unique<PassInstrumentationCallbacks>();
+
+  // StandardInstrumentations wants an LLVMContext& parameter
+  TheSI = std::make_unique<StandardInstrumentations>(*TheContext,
+                                                     /*DebugLogging*/ true);
+  TheSI->registerCallbacks(*ThePIC, TheMAM.get());
+
+  // Add transform passes to FunctionPassManager (note: for new PassManager API
+  // you will want to use PassBuilder to create FunctionPassManager with module)
+  TheFPM->addPass(InstCombinePass());
+  TheFPM->addPass(ReassociatePass());
+  TheFPM->addPass(GVNPass());
+  TheFPM->addPass(SimplifyCFGPass());
+
+  // Register analysis passes used in these transform passes.
+  PassBuilder PB;
+  PB.registerModuleAnalyses(*TheMAM);
+  PB.registerFunctionAnalyses(*TheFAM);
+  PB.crossRegisterProxies(*TheLAM, *TheFAM, *TheCGAM, *TheMAM);
 }
+
 
 static void HandleDefinition() {
   if (auto FnAST = ParseDefinition()) {
@@ -25,6 +76,9 @@ static void HandleDefinition() {
       fprintf(stderr, "Read function definition:");
       FnIR->print(errs());
       fprintf(stderr, "\n");
+      // ExitOnErr(TheJIT->addModule(
+      //     ThreadSafeModule(std::move(TheModule), std::move(TheContext))));
+      // InitializeModuleAndManagers();
     }
   } else {
     // Skip token for error recovery.
@@ -38,6 +92,7 @@ static void HandleExtern() {
       fprintf(stderr, "Read extern: ");
       FnIR->print(errs());
       fprintf(stderr, "\n");
+      FunctionProtos[ProtoAST->getName()] = std::move(ProtoAST);
     }
   } else {
     // Skip token for error recovery.
@@ -45,19 +100,26 @@ static void HandleExtern() {
   }
 }
 
-static void HandleTopLevelExpression() {
-  // Evaluate a top-level expression into an anonymous function.
-  if (auto FnAST = ParseTopLevelExpr()) {
-    if (auto *FnIR = FnAST->codegen()) {
-      fprintf(stderr, "Read top-level expression:");
-      FnIR->print(errs());
-      fprintf(stderr, "\n");
 
-      // Remove the anonymous expression.
-      FnIR->eraseFromParent();
+static void HandleTopLevelExpression() {
+  if (auto FnAST = ParseTopLevelExpr()) {
+    if (FnAST->codegen()) {
+      auto TSM = ThreadSafeModule(std::move(TheModule), std::move(TheContext));
+      auto RT = TheJIT->getMainJITDylib().createResourceTracker();
+      ExitOnErr(TheJIT->addModule(std::move(TSM)));
+
+      auto ExprSymbol = ExitOnErr(TheJIT->lookup("__anon_expr"));
+      double (*FP)() = reinterpret_cast<double (*)()>(ExprSymbol.getAddress().getValue());
+      fprintf(stderr, "Evaluated to %f\n", FP());
+
+      ExitOnErr(RT->remove());
+
+      // Recreate module/context **only for the next expression**, not for functions
+      TheContext = std::make_unique<LLVMContext>();
+      TheModule  = std::make_unique<Module>("msk2", *TheContext);
+      Builder    = std::make_unique<IRBuilder<>>(*TheContext);
     }
   } else {
-    // Skip token for error recovery.
     getNextToken();
   }
 }
@@ -66,7 +128,7 @@ static void HandleTopLevelExpression() {
 static void MainLoop() {
   while (true) {
     fprintf(stderr, "ready> ");
-    switch (CurTok) {
+    switch (CurrentToken) {
     case tok_eof:
       return;
     case ';': // ignore top-level semicolons.
@@ -90,6 +152,10 @@ static void MainLoop() {
 //===----------------------------------------------------------------------===//
 
 int main() {
+  InitializeNativeTarget();
+  InitializeNativeTargetAsmPrinter();
+  InitializeNativeTargetAsmParser();
+
   // Install standard binary operators.
   // 1 is lowest precedence.
   BinopPrecedence['<'] = 10;
@@ -101,14 +167,35 @@ int main() {
   fprintf(stderr, "ready> ");
   getNextToken();
 
-  // Make the module, which holds all the code.
-  InitializeModule();
+  TheJIT = ExitOnErr(KaleidoscopeJIT::Create());
+
+auto &JD = TheJIT->getMainJITDylib();
+auto DL = TheJIT->getDataLayout();
+llvm::orc::MangleAndInterner Mangle(JD.getExecutionSession(), DL);
+
+llvm::orc::SymbolMap Symbols;
+
+Symbols[Mangle("printd")] = llvm::orc::ExecutorSymbolDef{
+    llvm::orc::ExecutorAddr{llvm::pointerToJITTargetAddress(&printd)},
+    llvm::JITSymbolFlags::Exported
+};
+
+Symbols[Mangle("sin")] = llvm::orc::ExecutorSymbolDef{
+    llvm::orc::ExecutorAddr{
+        llvm::pointerToJITTargetAddress(static_cast<double(*)(double)>(&sin))
+    },
+    llvm::JITSymbolFlags::Exported
+};
+
+ExitOnErr(JD.define(llvm::orc::absoluteSymbols(Symbols)));
+
+
+
+
+  InitializeModuleAndManagers();
 
   // Run the main "interpreter loop" now.
   MainLoop();
-
-  // Print out all of the generated code.
-  TheModule->print(errs(), nullptr);
 
   return 0;
 }

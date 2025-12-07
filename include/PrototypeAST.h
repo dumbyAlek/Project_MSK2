@@ -4,11 +4,8 @@
 #include "ExprAST.h"
 #include <vector>
 #include <string>
-
-namespace llvm {
-    class Function;
-    class Type;
-}
+#include "llvm_all.h"
+#include "kaleidoscope.h"
 
 using namespace std;
 

@@ -2,6 +2,7 @@
 #define LEXER_H
 #include <cstdlib>
 #include <string>
+#include "token.h"
 
 using namespace std;
 

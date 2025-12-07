@@ -3,12 +3,9 @@
 
 #include <memory>
 #include "ExprAST.h"
-
-namespace llvm {
-    class Value;
-    class IRBuilderBase;
-    class Type;
-}
+#include "llvm_all.h"
+#include "kaleidoscope.h"
+#include "logger.h"
 
 using namespace std;
 

@@ -4,10 +4,9 @@
 #include "ExprAST.h"
 #include "PrototypeAST.h"
 #include <memory>
-
-namespace llvm {
-    class Function;
-}
+#include "llvm_all.h"
+#include "kaleidoscope.h"
+#include "logger.h"
 
 using namespace std;
 

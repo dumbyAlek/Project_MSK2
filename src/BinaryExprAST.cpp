@@ -1,7 +1,4 @@
 #include "../include/BinaryExprAST.h"
-#include "llvm/IR/IRBuilder.h"
-#include "../include/kaleidoscope.h"
-#include "../include/logger.h"
 
 // Generate LLVM code for binary expressions
 llvm::Value *BinaryExprAST::codegen() {
@@ -14,14 +11,14 @@ llvm::Value *BinaryExprAST::codegen() {
 
   switch (Op) {
     case '+':
-      return Builder.CreateFAdd(L, R, "addtmp");
+      return Builder->CreateFAdd(L, R, "addtmp");
     case '-':
-      return Builder.CreateFSub(L, R, "subtmp");
+      return Builder->CreateFSub(L, R, "subtmp");
     case '*':
-      return Builder.CreateFMul(L, R, "multmp");
+      return Builder->CreateFMul(L, R, "multmp");
     case '<':
-      L = Builder.CreateFCmpULT(L, R, "cmptmp");
-      return Builder.CreateUIToFP(L, llvm::Type::getDoubleTy(TheContext), "booltmp");
+      L = Builder->CreateFCmpULT(L, R, "cmptmp");
+      return Builder->CreateUIToFP(L, llvm::Type::getDoubleTy(*TheContext), "booltmp");
     default:
       return LogErrorV("Invalid binary operator");
   }

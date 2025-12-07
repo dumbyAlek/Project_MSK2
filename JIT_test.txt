@@ -1,0 +1,11 @@
+extern printd(x);
+
+def add(a, b)
+  a + b;
+
+def square(x)
+  x * x;
+
+square(5);
+add(10, 20);
+

@@ -1,8 +1,4 @@
 #include "../include/CallExprAST.h"
-#include <llvm/IR/IRBuilder.h>
-#include <llvm/IR/Function.h>
-#include "../include/logger.h"
-#include "../include/kaleidoscope.h"
 
 // Generate LLVM code for function calls
 llvm::Value *CallExprAST::codegen() {
@@ -25,5 +21,5 @@ llvm::Value *CallExprAST::codegen() {
     }
   }
 
-  return Builder.CreateCall(CalleeF, ArgsV, "calltmp");
+  return Builder->CreateCall(CalleeF, ArgsV, "calltmp");
 }

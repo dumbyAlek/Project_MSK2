@@ -1,3 +1,4 @@
+#pragma once
 #include "lexer.h"
 #include "token.h"
 #include "parser.h"
@@ -10,3 +11,4 @@
 #include "PrototypeAST.h"
 #include "FunctionAST.h"
 #include "logger.h"
+#include "KaleidoscopeJIT.h"

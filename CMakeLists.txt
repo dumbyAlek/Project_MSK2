@@ -11,9 +11,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # LLVM
 find_package(LLVM REQUIRED CONFIG)
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
-message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
+message(STATUS "LLVM include dirs: ${LLVM_INCLUDE_DIRS}")
+message(STATUS "LLVM libs: ${LLVM_LIBRARIES}")
 
-llvm_map_components_to_libnames(LLVM_LIBS core native asmparser x86codegen)
+llvm_map_components_to_libnames(LLVM_LIBS
+    core
+    orcjit
+    executionengine
+    irreader
+    asmparser
+    asmprinter
+    passes
+    support
+    x86codegen
+    x86asmparser
+    x86desc
+    x86info
+)
 
 # Define paths for headers and source files
 set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
@@ -23,6 +37,7 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 include_directories(src)
 include_directories(include)
 include_directories(${LLVM_INCLUDE_DIRS})
+add_definitions(${LLVM_DEFINITIONS})
 
 # Collect all source files
 file(GLOB SOURCES
@@ -43,6 +58,7 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} ${LLVM_LIBS})
 target_compile_definitions(${PROJECT_NAME} PUBLIC ${LLVM_DEFINITIONS})
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${LLVM_INCLUDE_DIRS})
 
 
 

@@ -1,7 +1,7 @@
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/intrinsics_gen.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/omp_gen.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/acc_gen.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/RISCVTargetParserTableGen.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/msk2.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/edit_cache.dir
-/home/alek/CSE425/Project_NewLang/build/CMakeFiles/rebuild_cache.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/intrinsics_gen.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/omp_gen.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/acc_gen.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/msk2.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/edit_cache.dir
+/home/alek/CSE425/Project_MSK2/build/CMakeFiles/rebuild_cache.dir

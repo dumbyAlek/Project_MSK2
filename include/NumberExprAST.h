@@ -2,6 +2,8 @@
 #define __NUMBER_EXPR_AST_H__
 
 #include "ExprAST.h"
+#include "llvm_all.h"
+#include "kaleidoscope.h"
 
 // Expression class for numeric literals like "1.0"
 class NumberExprAST : public ExprAST {

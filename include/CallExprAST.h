@@ -5,11 +5,10 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "llvm_all.h"
 
-namespace llvm {
-    class Value;
-    class Function;
-}
+#include "logger.h"
+#include "kaleidoscope.h"
 
 using namespace std;
 

@@ -3,6 +3,9 @@
 
 #include "ExprAST.h"
 #include <string>
+#include "llvm_all.h"
+#include "logger.h"
+#include "kaleidoscope.h"
 
 // Expression class for referencing a variable, like "a"
 class VariableExprAST : public ExprAST {

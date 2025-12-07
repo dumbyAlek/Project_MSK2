@@ -12,6 +12,7 @@
 #include "lexer.h"
 #include "token.h"
 #include "logger.h"
+#include "llvm_all.h"
 
 using namespace std;
 

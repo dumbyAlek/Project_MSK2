@@ -34,7 +34,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/alek/CSE425/Project_NewLang/build/
+cmake_ninja_workdir = /home/alek/CSE425/Project_MSK2/build/
 
 #############################################
 # Utility command for intrinsics_gen
@@ -68,91 +68,107 @@ build RISCVTargetParserTableGen: phony
 
 build cmake_object_order_depends_target_msk2: phony || CMakeFiles/msk2.dir
 
-build CMakeFiles/msk2.dir/main.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/main.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/main.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/main.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/main.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir
 
-build CMakeFiles/msk2.dir/src/BinaryExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/BinaryExprAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/BinaryExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/BinaryExprAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/BinaryExprAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/CallExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/CallExprAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/CallExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/CallExprAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/CallExprAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/FunctionAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/FunctionAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/FunctionAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/FunctionAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/FunctionAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/NumberExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/NumberExprAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/NumberExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/NumberExprAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/NumberExprAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/PrototypeAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/PrototypeAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/PrototypeAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/PrototypeAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/PrototypeAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/VariableExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/VariableExprAST.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/VariableExprAST.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/VariableExprAST.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/VariableExprAST.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/kaleidoscope.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/kaleidoscope.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/codeGen.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/codeGen.cpp || cmake_object_order_depends_target_msk2
+  DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  DEP_FILE = CMakeFiles/msk2.dir/src/codeGen.cpp.o.d
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
+  OBJECT_DIR = CMakeFiles/msk2.dir
+  OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
+
+build CMakeFiles/msk2.dir/src/kaleidoscope.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/kaleidoscope.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/kaleidoscope.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/lexer.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/lexer.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/lexer.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/lexer.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/lexer.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/logger.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/logger.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/logger.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/logger.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/logger.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
-build CMakeFiles/msk2.dir/src/parser.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_NewLang/src/parser.cpp || cmake_object_order_depends_target_msk2
+build CMakeFiles/msk2.dir/src/parser.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/parser.cpp || cmake_object_order_depends_target_msk2
   DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
   DEP_FILE = CMakeFiles/msk2.dir/src/parser.cpp.o.d
-  FLAGS = -std=gnu++20
-  INCLUDES = -I/home/alek/CSE425/Project_NewLang/src -I/home/alek/CSE425/Project_NewLang/include -I/usr/lib/llvm-18/include
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
+  OBJECT_DIR = CMakeFiles/msk2.dir
+  OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
+
+build CMakeFiles/msk2.dir/src/runtime.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/alek/CSE425/Project_MSK2/src/runtime.cpp || cmake_object_order_depends_target_msk2
+  DEFINES = -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  DEP_FILE = CMakeFiles/msk2.dir/src/runtime.cpp.o.d
+  FLAGS = -std=gnu++20   -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+  INCLUDES = -I/home/alek/CSE425/Project_MSK2/src -I/home/alek/CSE425/Project_MSK2/include -I/usr/lib/llvm-18/include
   OBJECT_DIR = CMakeFiles/msk2.dir
   OBJECT_FILE_DIR = CMakeFiles/msk2.dir/src
 
@@ -164,8 +180,8 @@ build CMakeFiles/msk2.dir/src/parser.cpp.o: CXX_COMPILER__msk2_unscanned_ /home/
 #############################################
 # Link the executable msk2
 
-build msk2: CXX_EXECUTABLE_LINKER__msk2_ CMakeFiles/msk2.dir/main.cpp.o CMakeFiles/msk2.dir/src/BinaryExprAST.cpp.o CMakeFiles/msk2.dir/src/CallExprAST.cpp.o CMakeFiles/msk2.dir/src/FunctionAST.cpp.o CMakeFiles/msk2.dir/src/NumberExprAST.cpp.o CMakeFiles/msk2.dir/src/PrototypeAST.cpp.o CMakeFiles/msk2.dir/src/VariableExprAST.cpp.o CMakeFiles/msk2.dir/src/kaleidoscope.cpp.o CMakeFiles/msk2.dir/src/lexer.cpp.o CMakeFiles/msk2.dir/src/logger.cpp.o CMakeFiles/msk2.dir/src/parser.cpp.o | /usr/lib/llvm-18/lib/libLLVMCore.a /usr/lib/llvm-18/lib/libLLVMAsmParser.a /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a /usr/lib/llvm-18/lib/libLLVMX86AsmParser.a /usr/lib/llvm-18/lib/libLLVMX86Desc.a /usr/lib/llvm-18/lib/libLLVMX86Disassembler.a /usr/lib/llvm-18/lib/libLLVMX86Info.a /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a /usr/lib/llvm-18/lib/libLLVMCFGuard.a /usr/lib/llvm-18/lib/libLLVMGlobalISel.a /usr/lib/llvm-18/lib/libLLVMIRPrinter.a /usr/lib/llvm-18/lib/libLLVMInstrumentation.a /usr/lib/llvm-18/lib/libLLVMSelectionDAG.a /usr/lib/llvm-18/lib/libLLVMCodeGen.a /usr/lib/llvm-18/lib/libLLVMScalarOpts.a /usr/lib/llvm-18/lib/libLLVMAggressiveInstCombine.a /usr/lib/llvm-18/lib/libLLVMInstCombine.a /usr/lib/llvm-18/lib/libLLVMBitWriter.a /usr/lib/llvm-18/lib/libLLVMObjCARCOpts.a /usr/lib/llvm-18/lib/libLLVMTarget.a /usr/lib/llvm-18/lib/libLLVMTransformUtils.a /usr/lib/llvm-18/lib/libLLVMAnalysis.a /usr/lib/llvm-18/lib/libLLVMProfileData.a /usr/lib/llvm-18/lib/libLLVMSymbolize.a /usr/lib/llvm-18/lib/libLLVMDebugInfoDWARF.a /usr/lib/llvm-18/lib/libLLVMDebugInfoPDB.a /usr/lib/llvm-18/lib/libLLVMDebugInfoMSF.a /usr/lib/llvm-18/lib/libLLVMDebugInfoBTF.a /usr/lib/llvm-18/lib/libLLVMObject.a /usr/lib/llvm-18/lib/libLLVMIRReader.a /usr/lib/llvm-18/lib/libLLVMAsmParser.a /usr/lib/llvm-18/lib/libLLVMBitReader.a /usr/lib/llvm-18/lib/libLLVMCore.a /usr/lib/llvm-18/lib/libLLVMRemarks.a /usr/lib/llvm-18/lib/libLLVMBitstreamReader.a /usr/lib/llvm-18/lib/libLLVMTextAPI.a /usr/lib/llvm-18/lib/libLLVMCodeGenTypes.a /usr/lib/llvm-18/lib/libLLVMMCParser.a /usr/lib/llvm-18/lib/libLLVMMCDisassembler.a /usr/lib/llvm-18/lib/libLLVMMC.a /usr/lib/llvm-18/lib/libLLVMBinaryFormat.a /usr/lib/llvm-18/lib/libLLVMTargetParser.a /usr/lib/llvm-18/lib/libLLVMDebugInfoCodeView.a /usr/lib/llvm-18/lib/libLLVMSupport.a /usr/lib/llvm-18/lib/libLLVMDemangle.a /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libzstd.so /usr/lib/x86_64-linux-gnu/libtinfo.so
-  LINK_LIBRARIES = /usr/lib/llvm-18/lib/libLLVMCore.a  /usr/lib/llvm-18/lib/libLLVMAsmParser.a  /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a  /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a  /usr/lib/llvm-18/lib/libLLVMX86AsmParser.a  /usr/lib/llvm-18/lib/libLLVMX86Desc.a  /usr/lib/llvm-18/lib/libLLVMX86Disassembler.a  /usr/lib/llvm-18/lib/libLLVMX86Info.a  /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a  /usr/lib/llvm-18/lib/libLLVMCFGuard.a  /usr/lib/llvm-18/lib/libLLVMGlobalISel.a  /usr/lib/llvm-18/lib/libLLVMIRPrinter.a  /usr/lib/llvm-18/lib/libLLVMInstrumentation.a  /usr/lib/llvm-18/lib/libLLVMSelectionDAG.a  /usr/lib/llvm-18/lib/libLLVMCodeGen.a  /usr/lib/llvm-18/lib/libLLVMScalarOpts.a  /usr/lib/llvm-18/lib/libLLVMAggressiveInstCombine.a  /usr/lib/llvm-18/lib/libLLVMInstCombine.a  /usr/lib/llvm-18/lib/libLLVMBitWriter.a  /usr/lib/llvm-18/lib/libLLVMObjCARCOpts.a  /usr/lib/llvm-18/lib/libLLVMTarget.a  /usr/lib/llvm-18/lib/libLLVMTransformUtils.a  /usr/lib/llvm-18/lib/libLLVMAnalysis.a  /usr/lib/llvm-18/lib/libLLVMProfileData.a  /usr/lib/llvm-18/lib/libLLVMSymbolize.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoDWARF.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoPDB.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoMSF.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoBTF.a  /usr/lib/llvm-18/lib/libLLVMObject.a  /usr/lib/llvm-18/lib/libLLVMIRReader.a  /usr/lib/llvm-18/lib/libLLVMAsmParser.a  /usr/lib/llvm-18/lib/libLLVMBitReader.a  /usr/lib/llvm-18/lib/libLLVMCore.a  /usr/lib/llvm-18/lib/libLLVMRemarks.a  /usr/lib/llvm-18/lib/libLLVMBitstreamReader.a  /usr/lib/llvm-18/lib/libLLVMTextAPI.a  /usr/lib/llvm-18/lib/libLLVMCodeGenTypes.a  /usr/lib/llvm-18/lib/libLLVMMCParser.a  /usr/lib/llvm-18/lib/libLLVMMCDisassembler.a  /usr/lib/llvm-18/lib/libLLVMMC.a  /usr/lib/llvm-18/lib/libLLVMBinaryFormat.a  /usr/lib/llvm-18/lib/libLLVMTargetParser.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoCodeView.a  /usr/lib/llvm-18/lib/libLLVMSupport.a  /usr/lib/llvm-18/lib/libLLVMDemangle.a  -lrt  -ldl  -lm  /usr/lib/x86_64-linux-gnu/libz.so  /usr/lib/x86_64-linux-gnu/libzstd.so  /usr/lib/x86_64-linux-gnu/libtinfo.so
+build msk2: CXX_EXECUTABLE_LINKER__msk2_ CMakeFiles/msk2.dir/main.cpp.o CMakeFiles/msk2.dir/src/BinaryExprAST.cpp.o CMakeFiles/msk2.dir/src/CallExprAST.cpp.o CMakeFiles/msk2.dir/src/FunctionAST.cpp.o CMakeFiles/msk2.dir/src/NumberExprAST.cpp.o CMakeFiles/msk2.dir/src/PrototypeAST.cpp.o CMakeFiles/msk2.dir/src/VariableExprAST.cpp.o CMakeFiles/msk2.dir/src/codeGen.cpp.o CMakeFiles/msk2.dir/src/kaleidoscope.cpp.o CMakeFiles/msk2.dir/src/lexer.cpp.o CMakeFiles/msk2.dir/src/logger.cpp.o CMakeFiles/msk2.dir/src/parser.cpp.o CMakeFiles/msk2.dir/src/runtime.cpp.o | /usr/lib/llvm-18/lib/libLLVMCore.a /usr/lib/llvm-18/lib/libLLVMOrcJIT.a /usr/lib/llvm-18/lib/libLLVMExecutionEngine.a /usr/lib/llvm-18/lib/libLLVMIRReader.a /usr/lib/llvm-18/lib/libLLVMAsmParser.a /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a /usr/lib/llvm-18/lib/libLLVMPasses.a /usr/lib/llvm-18/lib/libLLVMSupport.a /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a /usr/lib/llvm-18/lib/libLLVMX86AsmParser.a /usr/lib/llvm-18/lib/libLLVMX86Desc.a /usr/lib/llvm-18/lib/libLLVMX86Info.a /usr/lib/llvm-18/lib/libLLVMCoroutines.a /usr/lib/llvm-18/lib/libLLVMHipStdPar.a /usr/lib/llvm-18/lib/libLLVMipo.a /usr/lib/llvm-18/lib/libLLVMFrontendOpenMP.a /usr/lib/llvm-18/lib/libLLVMFrontendOffloading.a /usr/lib/llvm-18/lib/libLLVMLinker.a /usr/lib/llvm-18/lib/libLLVMVectorize.a /usr/lib/llvm-18/lib/libLLVMJITLink.a /usr/lib/llvm-18/lib/libLLVMOrcTargetProcess.a /usr/lib/llvm-18/lib/libLLVMOrcShared.a /usr/lib/llvm-18/lib/libLLVMWindowsDriver.a /usr/lib/llvm-18/lib/libLLVMOption.a /usr/lib/llvm-18/lib/libLLVMRuntimeDyld.a /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a /usr/lib/llvm-18/lib/libLLVMCFGuard.a /usr/lib/llvm-18/lib/libLLVMIRPrinter.a /usr/lib/llvm-18/lib/libLLVMInstrumentation.a /usr/lib/llvm-18/lib/libLLVMGlobalISel.a /usr/lib/llvm-18/lib/libLLVMSelectionDAG.a /usr/lib/llvm-18/lib/libLLVMCodeGen.a /usr/lib/llvm-18/lib/libLLVMBitWriter.a /usr/lib/llvm-18/lib/libLLVMTarget.a /usr/lib/llvm-18/lib/libLLVMObjCARCOpts.a /usr/lib/llvm-18/lib/libLLVMScalarOpts.a /usr/lib/llvm-18/lib/libLLVMAggressiveInstCombine.a /usr/lib/llvm-18/lib/libLLVMInstCombine.a /usr/lib/llvm-18/lib/libLLVMTransformUtils.a /usr/lib/llvm-18/lib/libLLVMAnalysis.a /usr/lib/llvm-18/lib/libLLVMProfileData.a /usr/lib/llvm-18/lib/libLLVMSymbolize.a /usr/lib/llvm-18/lib/libLLVMDebugInfoDWARF.a /usr/lib/llvm-18/lib/libLLVMDebugInfoPDB.a /usr/lib/llvm-18/lib/libLLVMObject.a /usr/lib/llvm-18/lib/libLLVMIRReader.a /usr/lib/llvm-18/lib/libLLVMAsmParser.a /usr/lib/llvm-18/lib/libLLVMBitReader.a /usr/lib/llvm-18/lib/libLLVMCore.a /usr/lib/llvm-18/lib/libLLVMRemarks.a /usr/lib/llvm-18/lib/libLLVMBitstreamReader.a /usr/lib/llvm-18/lib/libLLVMTextAPI.a /usr/lib/llvm-18/lib/libLLVMDebugInfoMSF.a /usr/lib/llvm-18/lib/libLLVMDebugInfoBTF.a /usr/lib/llvm-18/lib/libLLVMCodeGenTypes.a /usr/lib/llvm-18/lib/libLLVMMCDisassembler.a /usr/lib/llvm-18/lib/libLLVMMCParser.a /usr/lib/llvm-18/lib/libLLVMMC.a /usr/lib/llvm-18/lib/libLLVMBinaryFormat.a /usr/lib/llvm-18/lib/libLLVMTargetParser.a /usr/lib/llvm-18/lib/libLLVMDebugInfoCodeView.a /usr/lib/llvm-18/lib/libLLVMSupport.a /usr/lib/llvm-18/lib/libLLVMDemangle.a /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/x86_64-linux-gnu/libzstd.so /usr/lib/x86_64-linux-gnu/libtinfo.so
+  LINK_LIBRARIES = /usr/lib/llvm-18/lib/libLLVMCore.a  /usr/lib/llvm-18/lib/libLLVMOrcJIT.a  /usr/lib/llvm-18/lib/libLLVMExecutionEngine.a  /usr/lib/llvm-18/lib/libLLVMIRReader.a  /usr/lib/llvm-18/lib/libLLVMAsmParser.a  /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a  /usr/lib/llvm-18/lib/libLLVMPasses.a  /usr/lib/llvm-18/lib/libLLVMSupport.a  /usr/lib/llvm-18/lib/libLLVMX86CodeGen.a  /usr/lib/llvm-18/lib/libLLVMX86AsmParser.a  /usr/lib/llvm-18/lib/libLLVMX86Desc.a  /usr/lib/llvm-18/lib/libLLVMX86Info.a  /usr/lib/llvm-18/lib/libLLVMCoroutines.a  /usr/lib/llvm-18/lib/libLLVMHipStdPar.a  /usr/lib/llvm-18/lib/libLLVMipo.a  /usr/lib/llvm-18/lib/libLLVMFrontendOpenMP.a  /usr/lib/llvm-18/lib/libLLVMFrontendOffloading.a  /usr/lib/llvm-18/lib/libLLVMLinker.a  /usr/lib/llvm-18/lib/libLLVMVectorize.a  /usr/lib/llvm-18/lib/libLLVMJITLink.a  /usr/lib/llvm-18/lib/libLLVMOrcTargetProcess.a  /usr/lib/llvm-18/lib/libLLVMOrcShared.a  /usr/lib/llvm-18/lib/libLLVMWindowsDriver.a  /usr/lib/llvm-18/lib/libLLVMOption.a  /usr/lib/llvm-18/lib/libLLVMRuntimeDyld.a  /usr/lib/llvm-18/lib/libLLVMAsmPrinter.a  /usr/lib/llvm-18/lib/libLLVMCFGuard.a  /usr/lib/llvm-18/lib/libLLVMIRPrinter.a  /usr/lib/llvm-18/lib/libLLVMInstrumentation.a  /usr/lib/llvm-18/lib/libLLVMGlobalISel.a  /usr/lib/llvm-18/lib/libLLVMSelectionDAG.a  /usr/lib/llvm-18/lib/libLLVMCodeGen.a  /usr/lib/llvm-18/lib/libLLVMBitWriter.a  /usr/lib/llvm-18/lib/libLLVMTarget.a  /usr/lib/llvm-18/lib/libLLVMObjCARCOpts.a  /usr/lib/llvm-18/lib/libLLVMScalarOpts.a  /usr/lib/llvm-18/lib/libLLVMAggressiveInstCombine.a  /usr/lib/llvm-18/lib/libLLVMInstCombine.a  /usr/lib/llvm-18/lib/libLLVMTransformUtils.a  /usr/lib/llvm-18/lib/libLLVMAnalysis.a  /usr/lib/llvm-18/lib/libLLVMProfileData.a  /usr/lib/llvm-18/lib/libLLVMSymbolize.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoDWARF.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoPDB.a  /usr/lib/llvm-18/lib/libLLVMObject.a  /usr/lib/llvm-18/lib/libLLVMIRReader.a  /usr/lib/llvm-18/lib/libLLVMAsmParser.a  /usr/lib/llvm-18/lib/libLLVMBitReader.a  /usr/lib/llvm-18/lib/libLLVMCore.a  /usr/lib/llvm-18/lib/libLLVMRemarks.a  /usr/lib/llvm-18/lib/libLLVMBitstreamReader.a  /usr/lib/llvm-18/lib/libLLVMTextAPI.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoMSF.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoBTF.a  /usr/lib/llvm-18/lib/libLLVMCodeGenTypes.a  /usr/lib/llvm-18/lib/libLLVMMCDisassembler.a  /usr/lib/llvm-18/lib/libLLVMMCParser.a  /usr/lib/llvm-18/lib/libLLVMMC.a  /usr/lib/llvm-18/lib/libLLVMBinaryFormat.a  /usr/lib/llvm-18/lib/libLLVMTargetParser.a  /usr/lib/llvm-18/lib/libLLVMDebugInfoCodeView.a  /usr/lib/llvm-18/lib/libLLVMSupport.a  /usr/lib/llvm-18/lib/libLLVMDemangle.a  -lrt  -ldl  -lm  /usr/lib/x86_64-linux-gnu/libz.so  /usr/lib/x86_64-linux-gnu/libzstd.so  /usr/lib/x86_64-linux-gnu/libtinfo.so
   OBJECT_DIR = CMakeFiles/msk2.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -177,7 +193,7 @@ build msk2: CXX_EXECUTABLE_LINKER__msk2_ CMakeFiles/msk2.dir/main.cpp.o CMakeFil
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/alek/CSE425/Project_NewLang/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/alek/CSE425/Project_MSK2/build && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -188,7 +204,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/alek/CSE425/Project_NewLang/build && /usr/bin/cmake --regenerate-during-build -S/home/alek/CSE425/Project_NewLang -B/home/alek/CSE425/Project_NewLang/build
+  COMMAND = cd /home/alek/CSE425/Project_MSK2/build && /usr/bin/cmake --regenerate-during-build -S/home/alek/CSE425/Project_MSK2 -B/home/alek/CSE425/Project_MSK2/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -204,7 +220,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/alek/CSE425/Project_NewLang/build
+# Folder: /home/alek/CSE425/Project_MSK2/build
 
 build all: phony msk2
 
@@ -215,14 +231,14 @@ build all: phony msk2
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/alek/CSE425/Project_NewLang/CMakeLists.txt /usr/lib/llvm-18/cmake/FindFFI.cmake /usr/lib/llvm-18/cmake/FindLibEdit.cmake /usr/lib/llvm-18/cmake/FindTerminfo.cmake /usr/lib/llvm-18/cmake/Findzstd.cmake /usr/lib/llvm-18/cmake/LLVMConfig.cmake /usr/lib/llvm-18/cmake/LLVMConfigVersion.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindCURL.cmake /usr/share/cmake-3.28/Modules/FindLibXml2.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/FindZLIB.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/alek/CSE425/Project_MSK2/CMakeLists.txt /usr/lib/llvm-18/cmake/FindFFI.cmake /usr/lib/llvm-18/cmake/FindLibEdit.cmake /usr/lib/llvm-18/cmake/FindTerminfo.cmake /usr/lib/llvm-18/cmake/Findzstd.cmake /usr/lib/llvm-18/cmake/LLVMConfig.cmake /usr/lib/llvm-18/cmake/LLVMConfigVersion.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindCURL.cmake /usr/share/cmake-3.28/Modules/FindLibXml2.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/FindZLIB.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/alek/CSE425/Project_NewLang/CMakeLists.txt /usr/lib/llvm-18/cmake/FindFFI.cmake /usr/lib/llvm-18/cmake/FindLibEdit.cmake /usr/lib/llvm-18/cmake/FindTerminfo.cmake /usr/lib/llvm-18/cmake/Findzstd.cmake /usr/lib/llvm-18/cmake/LLVMConfig.cmake /usr/lib/llvm-18/cmake/LLVMConfigVersion.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindCURL.cmake /usr/share/cmake-3.28/Modules/FindLibXml2.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/FindZLIB.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /home/alek/CSE425/Project_MSK2/CMakeLists.txt /usr/lib/llvm-18/cmake/FindFFI.cmake /usr/lib/llvm-18/cmake/FindLibEdit.cmake /usr/lib/llvm-18/cmake/FindTerminfo.cmake /usr/lib/llvm-18/cmake/Findzstd.cmake /usr/lib/llvm-18/cmake/LLVMConfig.cmake /usr/lib/llvm-18/cmake/LLVMConfigVersion.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVM-Config.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports-relwithdebinfo.cmake /usr/lib/llvm-18/lib/cmake/llvm/LLVMExports.cmake /usr/share/cmake-3.28/Modules/CMakeCInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindCURL.cmake /usr/share/cmake-3.28/Modules/FindLibXml2.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/FindZLIB.cmake /usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.28/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCCompiler.cmake CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################
